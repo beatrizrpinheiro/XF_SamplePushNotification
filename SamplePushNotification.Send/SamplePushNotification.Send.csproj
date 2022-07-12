@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="2.1.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="20.2.0.36" />
+    <PackageReference Include="Xam.Plugin.Badge.Forked" Version="1.0.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="private_key.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SamplePushNotification.MainPage"
+             FlyoutBehavior="Flyout"
+             FlyoutHeaderBehavior="Fixed"
+             FlyoutVerticalScrollMode="Auto"
+             FlyoutBackgroundColor="#FFA500"
+             xmlns:views="clr-namespace:SamplePushNotification.Views">
+
+    <!--Flyout Header-->
+
+    <Shell.FlyoutHeader>
+        <Grid RowDefinitions="100,70" RowSpacing="-20">
+
+            <FlexLayout 
+            Grid.Row="0"
+            Direction="Row"
+            Padding="10"
+            Margin="10"
+            AlignItems="Start"
+            BackgroundColor="#FFA500">
+
+                <Frame HeightRequest="60"
+                   WidthRequest="60"
+                   Padding="0"
+                   CornerRadius="40"
+                   IsClippedToBounds="True" HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Image Source="docente_teste.png"/>
+                </Frame>
+            </FlexLayout>
+            <FlexLayout Grid.Row="1" Direction="Column" HorizontalOptions="Start" AlignContent="Center" Margin="10" BackgroundColor="#FFA500">
+                <Label Text="Profa. Beatriz Pinheiro" TextColor="White" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Text="beatriz.pinheiro@professor.edu.br" TextColor="White" FontSize="Small" FontAttributes="Bold"/>
+            </FlexLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+
+    <FlyoutItem Title="Planos de Ensino"
+                Icon="ic_flyout_ensino_white.png">
+
+        <ShellContent ContentTemplate="{DataTemplate views:TeachingPlan}" />
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Métodos Ativos de Aprendizagem"
+                Icon="ic_flyout_metodos_white.png" >
+
+        <ShellContent ContentTemplate="{DataTemplate views:ActiveMethods}" />
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Planos de Aula"
+                Icon="ic_flyout_aula_white.png">
+
+        <ShellContent ContentTemplate="{DataTemplate views:ClassPlan}" />
+
+    </FlyoutItem>
+
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.25*,0.75*" Padding="-10,15">
+                <Image Source="{Binding Icon}"/>
+                <Label Grid.Column="1" Text="{Binding Title}" TextColor="White" VerticalTextAlignment="Center" FontAttributes="Bold"  x:Name="_label"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout Padding="20">
+                <Label Text="Version: 1.0.0"  TextColor="White" HorizontalOptions="Center" FontAttributes="Bold"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+</Shell>
